@@ -1,0 +1,5 @@
+Function LastRow(ws, col As String) As Long ' ws = worksheet name, col = column (eg "A")
+
+LastRow = ws.Range(col & .Rows.Count).End(xlUp).Row
+
+End Function
