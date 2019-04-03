@@ -43,5 +43,11 @@ Else
 End If
 
 WorkHours = HrsElapsed
- 
+
+End Function
+
+Function TimeDiff(StartTime As Date, EndTime As Date)
+
+    TimeDiff = Abs(EndTime - StartTime) * 24
+    
 End Function
