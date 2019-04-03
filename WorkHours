@@ -1,0 +1,47 @@
+'for caluclating work hours duration between two DateTimes
+
+Function WorkHours(StartDateTime, EndDateTime, Bus_Hrs_Start As Date, Bus_Hrs_End As Date, Holidays)
+
+Dim d1 As Date, d2 As Date, wf As WorksheetFunction
+Dim t1 As Date, t2 As Date
+Dim HrsElapsed As Double
+
+Set wf = Application.WorksheetFunction
+
+d1 = DateValue(StartDateTime)
+d2 = DateValue(EndDateTime)
+t1 = TimeValue(StartDateTime)
+t2 = TimeValue(EndDateTime)
+
+    If t1 < TimeValue(Bus_Hrs_Start) Then
+        t1 = TimeValue(Bus_Hrs_Start)
+    End If
+    If t1 > TimeValue(Bus_Hrs_End) Then
+        t1 = TimeValue(Bus_Hrs_End)
+    End If
+    If t2 < TimeValue(Bus_Hrs_Start) Then
+        t2 = TimeValue(Bus_Hrs_Start)
+    End If
+    If t2 > TimeValue(Bus_Hrs_End) Then
+        t2 = TimeValue(Bus_Hrs_End)
+    End If
+
+If Weekday(d1) = 7 Or Weekday(d1) = 1 Or wf.CountIfs(Holidays, d1) > 0 Then '7 = sat, 1 = sun, countifs = public holiday
+    d1 = wf.WorkDay(d1, 1, Holidays)
+    t1 = TimeValue(Bus_Hrs_Start)
+End If
+
+If Weekday(d2) = 7 Or Weekday(d2) = 1 Or wf.CountIfs(Holidays, d2) > 0 Then '7 = sat, 1 = sun, countifs = public holiday
+    d2 = wf.WorkDay(d2, 1, Holidays)
+    t2 = TimeValue(Bus_Hrs_Start)
+End If
+  
+If wf.NetworkDays(d1, d2, Holidays) > 1 Then
+    HrsElapsed = ((wf.NetworkDays(d1, d2, Holidays) - 2) * 8) + TimeDiff(t1, Bus_Hrs_End) + TimeDiff(Bus_Hrs_Start, t2)
+Else
+    HrsElapsed = TimeDiff(t1, t2)
+End If
+
+WorkHours = HrsElapsed
+ 
+End Function
