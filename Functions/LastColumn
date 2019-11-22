@@ -1,3 +1,7 @@
+'#######################################################################################
+'####################### Created by Joerg Wood (github.com/JPKW) #######################
+'#######################################################################################
+
 Function LastColumn(wsheet As String, row As String) As String 'requires continuous data from column A across selected row
 
 Dim ws As Worksheet
