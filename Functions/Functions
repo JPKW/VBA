@@ -152,8 +152,6 @@ Sub EmailWorkbook(emailTo As String, emailSubject As String, emailBody As String
 Dim OutlookApp As Object
 Dim OutlookMessage As Object
 
-Set SourceWB = ActiveWorkbook
-
   On Error Resume Next
     Set OutlookApp = GetObject(class:="Outlook.Application") 'Handles if Outlook is already open
   Err.Clear
