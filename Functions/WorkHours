@@ -1,3 +1,7 @@
+'#######################################################################################
+'####################### Created by Joerg Wood (github.com/JPKW) #######################
+'#######################################################################################
+
 'for caluclating work hours duration between two DateTimes
 
 Function WorkHours(StartDateTime, EndDateTime, Bus_Hrs_Start As Date, Bus_Hrs_End As Date, Holidays)
