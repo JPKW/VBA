@@ -1,3 +1,7 @@
+'#######################################################################################
+'####################### Created by Joerg Wood (github.com/JPKW) #######################
+'#######################################################################################
+
 Function LastRow(wsheet As String, col As String) As Long 'wsheet is sheet name, col is column (eg "A")
 Dim ws As Worksheet
 Set ws = ThisWorkbook.Sheets(wsheet)
