@@ -1,7 +1,5 @@
-Attribute VB_Name = "Functions"
-
 '#######################################################################################
-'################## Created by Joerg Wood (github.com/PushyFantastic) ##################
+'####################### Created by Joerg Wood (github.com/JPKW) #######################
 '#######################################################################################
 
 Function LastRow(wsheet As String, col As String) As Long
