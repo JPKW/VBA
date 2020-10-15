@@ -158,7 +158,7 @@ Dim OutlookMessage As Object
     If OutlookApp Is Nothing Then Set OutlookApp = CreateObject(class:="Outlook.Application") 'If not, open Outlook
     
     If Err.Number = 429 Then
-      MsgBox "Outlook could not be found, aborting.", 16, "Outlook Not Found"
+      MsgBox "Outlook could not be found, aborting.", vbcriticle, "Outlook Not Found"
       Exit Sub
     End If
   On Error GoTo 0
